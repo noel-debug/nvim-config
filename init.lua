@@ -733,7 +733,9 @@ do
   --  See `:help lsp-config` for information about keys and how to configure
   ---@type table<string, vim.lsp.Config>
   local servers = {
-    -- clangd = {},
+    clangd = {
+      cmd = { 'clangd', '--background-index', '--clang-tidy' },
+    },
     -- gopls = {},
     -- pyright = {},
     -- tsc = {},
@@ -841,6 +843,7 @@ do
     -- You can also specify external formatters in here.
     formatters_by_ft = {
       rust = { 'rustfmt' },
+      c = { 'clang-format' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
