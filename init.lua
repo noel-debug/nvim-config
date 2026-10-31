@@ -423,30 +423,26 @@ do
   -- change the command under that to load whatever the name of that colorscheme is.
   --
   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-  vim.pack.add { gh 'folke/tokyonight.nvim' }
+  vim.pack.add { gh 'rebelot/kanagawa.nvim' }
   ---@diagnostic disable-next-line: missing-fields
-  require('tokyonight').setup {
-    styles = {
-      comments = { italic = false }, -- Disable italics in comments
-    },
+  require('kanagawa').setup {
+    commentStyle = { italic = false }, -- Disable italics in comments
   }
 
   -- Load the colorscheme here.
-  -- Like many other themes, this one has different styles, and you could load
-  -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-  -- vim.cmd.colorscheme 'tokyonight-night'
+  -- Kanagawa also has 'kanagawa-dragon', a darker and more muted dark variant.
   vim.pack.add { gh 'f-person/auto-dark-mode.nvim' }
   require('auto-dark-mode').setup {
     update_interval = 3000,
     set_dark_mode = function()
       vim.g.colors_name = nil
       vim.o.background = 'dark'
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'kanagawa-wave'
     end,
     set_light_mode = function()
       vim.g.colors_name = nil
       vim.o.background = 'light'
-      vim.cmd.colorscheme 'tokyonight-day'
+      vim.cmd.colorscheme 'kanagawa-lotus'
     end,
   }
 
