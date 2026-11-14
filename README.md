@@ -1,5 +1,36 @@
 # kickstart.nvim
 
+## Themes
+
+Neovim follows Rex's colors automatically when Rex's extended theme palette is
+available. Switching Rex themes updates the running editor, including switches
+between light and dark themes. Enable **Use extended theme palette** in Rex's
+theme settings; the ordinary xterm palette does not contain the required shades.
+
+Other terminals, headless sessions, and terminals that do not answer the palette
+check use **Kanagawa Wave**, always dark. Detection is asynchronous and times out
+after one second. It runs at startup and when Neovim regains focus.
+
+Use `:Theme` to see the current selection, or override it:
+
+| Command | Behavior |
+| :--- | :--- |
+| `:Theme auto` | Detect Rex's palette; otherwise use Kanagawa Wave (default). |
+| `:Theme rex` | Force live Rex colors without detection. |
+| `:Theme dark` | Always use Kanagawa Wave. |
+
+Set `NVIM_THEME=auto`, `rex`, or `dark` before starting Neovim to select a mode
+on a particular machine. Over SSH, `NVIM_THEME=rex nvim` is useful when Rex's
+environment markers are not forwarded. The terminal displaying that session must
+still have Rex's extended palette enabled. A manual `:colorscheme` or Telescope
+selection takes precedence until the next `:Theme` command.
+
+The Rex scheme uses terminal color indices, so palette changes update existing
+text immediately without polling or caching RGB values. It leaves the terminal's
+default foreground and background intact and uses subtle palette shades for
+cursor lines, selections, and panels. Syntax accents follow the terminal palette;
+their assignment to code elements is defined in `colors/rex.lua`.
+
 ## Introduction
 
 A starting point for Neovim that is:

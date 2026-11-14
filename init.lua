@@ -418,39 +418,10 @@ do
   }
 
   -- [[ Colorscheme ]]
-  -- You can easily change to a different colorscheme.
-  -- Change the name of the colorscheme plugin below, and then
-  -- change the command under that to load whatever the name of that colorscheme is.
-  --
-  -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-  -- vim.pack.add { gh 'rebelot/kanagawa.nvim' }
-  -- ---@diagnostic disable-next-line: missing-fields
-  -- require('kanagawa').setup {
-  --   commentStyle = { italic = false }, -- Disable italics in comments
-  -- }
-  --
-  -- -- Load the colorscheme here.
-  -- -- Kanagawa also has 'kanagawa-dragon', a darker and more muted dark variant.
-  -- vim.pack.add { gh 'f-person/auto-dark-mode.nvim' }
-  -- require('auto-dark-mode').setup {
-  --   update_interval = 3000,
-  --   set_dark_mode = function()
-  --     vim.g.colors_name = nil
-  --     vim.o.background = 'dark'
-  --     vim.cmd.colorscheme 'kanagawa-wave'
-  --   end,
-  --   set_light_mode = function()
-  --     vim.g.colors_name = nil
-  --     vim.o.background = 'light'
-  --     vim.cmd.colorscheme 'kanagawa-lotus'
-  --   end,
-  -- }
-
-  vim.pack.add { gh 'bjarneo/pixel.nvim' }
-  require('pixel').setup {
-    disable_italics = true,
-  }
-  vim.cmd.colorscheme 'pixel'
+  -- Follow Rex's live palette when available; use Kanagawa Wave elsewhere.
+  -- Override with :Theme auto|rex|dark or NVIM_THEME=auto|rex|dark.
+  vim.pack.add { gh 'rebelot/kanagawa.nvim' }
+  require('custom.theme').setup()
 
   -- Highlight todo, notes, etc in comments
   vim.pack.add { gh 'folke/todo-comments.nvim' }
