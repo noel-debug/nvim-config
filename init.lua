@@ -106,6 +106,9 @@ do
   -- NOTE: You can change these options as you wish!
   --  For more options, you can see `:help option-list`
 
+  -- Load trusted project-local config (.nvim.lua); see `:help exrc`
+  vim.o.exrc = true
+
   -- Make line numbers default
   vim.o.number = true
   -- You can also add relative line numbers, to help with jumping.
