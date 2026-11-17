@@ -152,7 +152,7 @@ function M.setup()
     background = { dark = 'wave', light = 'wave' },
   }
 
-  vim.api.nvim_create_autocmd('TermResponse', { group = group, callback = response })
+  vim.api.nvim_create_autocmd('TermResponse', { group = group, nested = true, callback = response })
   vim.api.nvim_create_autocmd({ 'VimEnter', 'UIEnter', 'FocusGained' }, { group = group, callback = function() vim.schedule(probe) end })
   vim.api.nvim_create_autocmd('VimLeavePre', { group = group, callback = cancel_probe })
   vim.api.nvim_create_autocmd('ColorScheme', {
